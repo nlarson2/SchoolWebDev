@@ -1,0 +1,10 @@
+body{text-align: center;}
+.floatLeft{float: left;}
+.clear{clear: both;}
+
+#human,#computer{width:50%;}
+
+#hDice img{
+  width:50px;
+  height: auto;
+}

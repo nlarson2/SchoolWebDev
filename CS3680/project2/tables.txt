@@ -1,0 +1,50 @@
+I named them customers
++---------+--------------+------+-----+---------+----------------+
+| Field   | Type         | Null | Key | Default | Extra          |
++---------+--------------+------+-----+---------+----------------+
+| c_id    | int(11)      | NO   | PRI | NULL    | auto_increment |
+| c_fName | varchar(255) | NO   |     | NULL    |                |
+| c_lName | varchar(255) | NO   |     | NULL    |                |
+| c_email | varchar(255) | NO   |     | NULL    |                |
+| c_pw    | varchar(255) | NO   |     | NULL    |                |
+| c_admin | int(1)       | NO   |     | 0       |                |
++---------+--------------+------+-----+---------+----------------+
+
++------+-----------+------------+--------------------+--------------------------------------------------------------+---------+
+| c_id | c_fName   | c_lName    | c_email            | c_pw                                                         | c_admin |
++------+-----------+------------+--------------------+--------------------------------------------------------------+---------+
+|    2 | nickolas  | larson     | nlarson@yahoo.com  | $2y$10$00uqgPYz.t0Jrc3gvJrp9ee/TfQCVqnMYvS7Ej3Q.S9FH2AsRfBMi |       0 |
+|    3 | nick      | larson     | nlarson1@yahoo.com | $2y$10$EOFV2xz1m4rE6hrLiSCVuesdZxo7j/JzCS4ERzWqF0Pnobe/aekN2 |       0 |
+|    4 | nickolas  | larsontest | nlarson1@gmail.com | $2y$10$C5o0wLVpKsVakcngzj7KeuA.QbMovgGEZPXdHHQg4w4wS5L3W.On. |       0 |
+|    5 | nickolas  | larson     | test@test.com      | $2y$10$20guaJSEwzUA0.wdESODueZ3GIFPcRXa/B7LMcdzMH51X0Ga.g1ba |       0 |
+|    6 | test      | test       | test2@email.com    | $2y$10$TEao/GmcEtlmeeFB4IDlz.8Gjmiq5EC7wN/EExLbGnzxnQQhQPmFq |       0 |
+|    7 | testagain | testagain  | test2@test.com     | $2y$10$/a3kjfB0bMpcArnN05I74ecoeFhKmDvnqui4gOM6Aczgnk4VAGUFq |       0 |
+|    8 | nick      | nick       | nick@nick.com      | $2y$10$qercHE9AL74LUpBrawptieECQNaPiZvOUVR5xy8PulOsk8JQzX3ya |       0 |
++------+-----------+------------+--------------------+--------------------------------------------------------------+---------+
+
+
+Products
++------------------+---------------------+------+-----+---------+----------------+
+| Field            | Type                | Null | Key | Default | Extra          |
++------------------+---------------------+------+-----+---------+----------------+
+| prod_id          | int(10) unsigned    | NO   | PRI | NULL    | auto_increment |
+| prod_name        | varchar(127)        | YES  |     | NULL    |                |
+| prod_img         | varchar(127)        | YES  |     | NULL    |                |
+| prod_description | varchar(511)        | YES  |     | NULL    |                |
+| prod_price       | decimal(10,2)       | YES  |     | NULL    |                |
+| prod_rating      | tinyint(3) unsigned | YES  |     | NULL    |                |
+| prod_sku         | char(32)            | YES  |     | NULL    |                |
+| prod_stock       | int(10) unsigned    | YES  |     | NULL    |                |
++------------------+---------------------+------+-----+---------+----------------+
+
+----------+---------------------+---------------------+--------------------------------------------------------------------------+------------+-------------+----------+------------+
+| prod_id | prod_name           | prod_img            | prod_description                                                         | prod_price | prod_rating | prod_sku | prod_stock |_
++---------+---------------------+---------------------+--------------------------------------------------------------------------+------------+-------------+----------+------------+
+|       2 | Apple               | apple.jpg           | A delicious red apple                                                    |       0.98 |           2 | 58697    |          0 |
+|       3 | Banana              | banana.jpeg         | Great source of potassiumm                                               |       0.79 |           3 | 24370    |          1 |
+|       4 | Broccoli            | broccoli.jpeg       | Honestly I dont know whey we sell this stuff.. is it even good for you?? |       1.99 |           1 | 17348    |          1 |
+|       5 | Chips               | chips.jpeg          | Crunchy salty goodness: Updated through Admin Item Management System     |       3.99 |           5 | 95163    |          1 |
+|       6 | Orange              | orange.jpg          | Boot your immune system with this super fruit                            |       1.56 |           3 | 73859    |          1 |
+|      17 | Almonds             | almonds.jpg         | High in fiber and PROTEIN                                                |       4.00 |           4 | 6576979  |         20 |
+|      18 | Chicken and Waffles | chickenWaffles.jpeg | Nothing better than chicken and waffles...NOTHING!!!                     |       5.65 |           5 | 5465478  |          5 |
++---------+---------------------+---------------------+--------------------------------------------------------------------------+------------+-------------+----------+------------+

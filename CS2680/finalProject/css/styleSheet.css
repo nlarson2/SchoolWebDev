@@ -1,0 +1,37 @@
+.floatLeft{float:left;}
+.clear{clear:both;}
+
+body{
+  padding-left: 30px;
+}
+.navbar h3 {
+  color: white;
+}
+li{
+  list-style: none;
+}
+
+#content{
+  width: 70%;
+  margin:auto;
+  text-align: center;
+  margin-top: 30px;
+}
+#content h3{
+  font-weight: bold;
+}
+
+.thumbnail{
+  width: 80px;
+  border: black 4px solid;
+}
+
+#namePlace{
+  color:white;
+  font-weight: bold;
+  margin: auto;
+  text-align: center;
+}
+#faults{
+  color:red;
+}

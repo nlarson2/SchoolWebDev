@@ -1,0 +1,15 @@
+
+body{
+    width: 50%;
+    margin: auto;
+}
+.centerTxt {
+    text-align: center
+}
+.err{
+    color: red;
+}
+
+#sBtn{
+    margin-top: 10px;
+}

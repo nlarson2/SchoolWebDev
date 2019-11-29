@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>lab1</title>
+
+    <style>
+      .error{
+        visibility: hidden;
+        color: red;
+      }
+      .centerText{
+        text-align: center;
+      }
+
+      .spaceOut10{
+        margin: 10px;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  </head>
+  <body  onload="blankSlate()">
+
+    <form class="centerText" id="orderForm" action="" method="post">
+
+      <div class="spaceOut10" id = "nameFields">
+        <span class='error'>*</span>
+        <label for="firstname">First Name</label>
+        <input type="text" id = "firstname" name="firstname">
+
+        <span class='error'>*</span>
+        <label for="lastname">Last Name</label>
+        <input type="text" id = "lastname" name="lastname">
+
+      </div>
+
+
+      <div class="spaceOut10" id = "drinkField">
+        <!-- First drink options-->
+        <span class='error'>*</span>
+        <label>COFFEE
+         <input type='checkbox' id='drink1' name='drink' value='Coffee'>
+        </label>
+
+        <select name='size' id='size1'>
+            <option value='0' selected>Please select a size</option>
+            <option value='small'>Small</option>
+            <option value='medium'>Medium</option>
+            <option value='large'>Large</option>
+        </select>
+
+        <input type='number' id='amount1' name='amount' min="1">
+        <br>
+
+          <!-- Second drink options-->
+        <span class='error'>*</span>
+        <label>TEA
+         <input type='checkbox' id='drink2' name='drink' value='Tea'>
+        </label>
+
+        <select name='size' id='size2'>
+            <option value='0' selected>Please select a size</option>
+            <option value='small'>Small</option>
+            <option value='medium'>Medium</option>
+            <option value='large'>Large</option>
+        </select>
+
+        <input type='number' id='amount2' name='amount' min="1">
+        <br>
+
+        <!-- Third drink options-->
+        <span class='error'>*</span>
+        <label>HOTCHOCOLATE
+         <input type='checkbox' id='drink3' name='drink' value='HotChocolate'>
+        </label>
+
+        <select name='size' id='size3'>
+            <option value='0' selected>Please select a size</option>
+            <option value='small'>Small</option>
+            <option value='medium'>Medium</option>
+            <option value='large'>Large</option>
+        </select>
+
+        <input type='number' id='amount3' name='amount' min="1">
+      </div>
+
+      <input id="orderIn" type='radio' name='InOut' value = 'For Here' >In House
+      <input id="orderOut" type='radio' name='InOut' value = 'To Go'>To Go
+      <br>
+      <input class="spaceOut10" id="subBtn" type='submit' value='Submit'>
+      <!-- <button>Subbmit</button>  note to self -->
+
+      </form>
+      <div id='output'></div>
+
+      <script>
+
+        //when page is refreshed set everthing to blank/inhouse
+        function blankSlate(){
+          document.getElementById('firstname').value = "";
+          document.getElementById('lastname').value = "";
+          document.getElementById('drink1').checked = false;
+          document.getElementById('drink2').checked = false;
+          document.getElementById('drink3').checked = false;
+          document.getElementById('size1').selectedIndex = 0;
+          document.getElementById('size2').selectedIndex = 0;
+          document.getElementById('size3').selectedIndex = 0;
+          document.getElementById('amount1').style.visibility = "hidden";
+          document.getElementById('amount2').style.visibility = "hidden";
+          document.getElementById('amount3').style.visibility = "hidden";
+          document.getElementById('amount1').value = '1';
+          document.getElementById('amount2').value = '1';
+          document.getElementById('amount3').value = '1';
+          document.getElementById('orderIn').checked = true;
+        }
+
+        //add event listener to each drink for a checkmark change
+        document.getElementById('drink1').addEventListener('change',function(e){
+
+            if(this.checked){
+              document.getElementById('amount1').style.visibility="visible";
+            }
+            else {
+              document.getElementById('amount1').style.visibility="hidden";
+            }
+        })
+        document.getElementById('drink2').addEventListener('change',function(e){
+
+            if(this.checked){
+              document.getElementById('amount2').style.visibility="visible";
+            }
+            else {
+              document.getElementById('amount2').style.visibility="hidden";
+            }
+        })
+        document.getElementById('drink3').addEventListener('change',function(e){
+
+            if(this.checked){
+              document.getElementById('amount3').style.visibility="visible";
+            }
+            else {
+              document.getElementById('amount3').style.visibility="hidden";
+            }
+        })
+
+
+
+        document.getElementById('orderForm').addEventListener('submit',function(e){
+          e.preventDefault();
+          //holds all elements in the form
+          var elements = this.elements;
+
+          var errSymbl = document.getElementsByClassName("error");
+          var fName = document.getElementById("firstname");
+          var lName = document.getElementById("lastname");
+          var drinks = document.getElementById("orderForm").elements.namedItem("drink");
+          var sizes = document.getElementById("orderForm").elements.namedItem("size");
+          var amount = document.getElementById("orderForm").elements.namedItem("amount");
+          var inOut = elements.InOut.value;
+          //holds error string
+          var err = '';
+
+          //make sure first and last name are filled in
+          if(fName.value == ''){
+            err += "Missing first name<br>";
+            fName.style.border = "solid 2px red";
+            errSymbl[0].style.visibility = "visible";
+          }
+          else{
+            fName.style.border = "";
+            errSymbl[0].style.visibility = "hidden";
+          }
+
+          if(lName.value == ''){
+            err +="Missing last name<br>";
+            lName.style.border = "solid 2px red";
+            errSymbl[1].style.visibility = "visible";
+          }
+          else{
+            fName.style.border = "";
+            errSymbl[1].style.visibility = "hidden";
+          }
+
+
+
+          //also produce string for drinks ordered
+          //check drinks/sizes for proper input
+          var isChecked = false;
+          var drinkOutPut=[];
+          for(var i = 0; i < drinks.length;i++){
+            if(drinks[i].checked==true){
+              if(sizes[i].selectedIndex==0){
+                err += "You must select a size for your "+drinks[i].value+"<br>";
+                errSymbl[i+2].style.visibility = "visible";
+                sizes[i].style.border="solid 2px red";
+
+              }
+              else{
+                sizes[i].style.border="";
+                errSymbl[i+2].style.visibility = "hidden";
+                drinkOutPut[i] = amount[i].value +" "+drinks[i].value;
+                if(amount[i].value>1){
+                  drinkOutPut[i]+='s ';
+                }
+              }
+              isChecked=true;
+            }
+          }
+          if(isChecked==false) {
+              err+="You must select a drink<br>";
+          }
+
+          //out put either error or return the order
+            if(err == ''){
+              var outPut;
+              outPut = "<h2>Thank you "+fName.value+" "+lName.value+" for your order</h2><br>";
+              outPut += "<p>You have ordered ";
+              for(var i = 0; i < drinkOutPut.length;i++){
+                if(i == drinkOutPut.length - 1 && i>0){
+                  outPut += " and "+drinkOutPut[i]+" " ;
+                }
+                else{
+                  outPut += drinkOutPut[i];
+                  if(drinkOutPut.length>1){
+                    outPut += ', ';
+                  }
+                }
+              }
+              outPut+=" "+inOut+".</p>";
+
+              document.body.innerHTML = outPut;
+            }
+            else{
+              $('#output').html(err);
+            }
+
+
+
+        })
+
+
+      </script>
+
+
+
+  </body>
+</html>

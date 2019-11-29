@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>lab10</title>
+    <link type="text/css" rel="stylesheet" href="css/lab10.css" />
+  </head>
+  <body>
+    <div id="dealerArea">
+      <img name='dCard' src='' alt=''>
+      <img name='dCard' src='' alt=''>
+      <img name='dCard' src='' alt=''>
+      <img name='dCard' src='' alt=''>
+      <img name='dCard' src='' alt=''>
+      <span id='dTotal'></span>
+    </div>
+    <div id="playerArea">
+      <img name='pCard' src='' alt=''>
+      <img name='pCard' src='' alt=''>
+      <img name='pCard' src='' alt=''>
+      <img name='pCard' src='' alt=''>
+      <img name='pCard' src='' alt=''>
+      <span id='pTotal'></span>
+    </div>
+    <div class='controlButtons'>
+      <input type='button' id='dealBtn' value='deal'>
+      <input type='button' id='hitBtn' value='Hit'>
+      <input type='button' id='standBtn' value='Stand'>
+      <input type='button' id='surrenderBtn' value='Surrender'>
+    </div>
+
+
+    <div id="outputArea"></div>
+
+    <script type="text/javascript" src="javascript/cardObject.js"></script>
+    <script>
+      var pCardsImgs = document.getElementsByName('pCard');
+      var dCardsImgs = document.getElementsByName('dCard');
+      var faceDownImg = "images/b1fv.png";
+      var top_card = 0;
+
+      var  humanTotal=0;
+      var dealerTota=0;
+      var isPlaying = false;
+      var hitCounter = 0;
+
+      shuffleDeck();
+
+      document.getElementById('dealBtn').addEventListener('click',function(){
+        deal();
+      });
+      document.getElementById('hitBtn').addEventListener('click', function () {
+        hit();
+      });
+      document.getElementById('standBtn').addEventListener('click', function () {
+        stand();
+      });
+
+      document.getElementById('surrenderBtn').addEventListener('click', function () {
+        surrender();
+      });
+
+
+      function deal() {
+          if(isPlaying == true) { return; }
+
+          isPlaying = true;
+          resetGame();
+
+          if(top_card > 51 ) resetDeck();
+          dCardsImgs[0].src = deck[top_card].imgSrc;
+          dealerTotal += deck[top_card].value
+          top_card++;
+          dCardsImgs[1].src = faceDownImg;
+
+          document.getElementById('dTotal').innerHTML = dealerTotal;
+
+          if(top_card > 51 ) resetDeck();
+          pCardsImgs[0].src = deck[top_card].imgSrc;
+          humanTotal += deck[top_card].value;
+          top_card++;
+          if(top_card > 51 ) resetDeck();
+          pCardsImgs[1].src = deck[top_card].imgSrc;
+          humanTotal += deck[top_card].value;
+          top_card++;
+
+          document.getElementById('pTotal').innerHTML = humanTotal;
+
+      }
+
+      function hit()
+      {
+
+          if(isPlaying == false) { return; }
+
+          if(top_card > 51 ) resetDeck();
+          if(hitCounter < 3)
+          {
+              pCardsImgs[hitCounter + 2].src = deck[top_card].imgSrc;
+              humanTotal += deck[top_card].value;
+              top_card++;
+              hitCounter++;
+              document.getElementById('pTotal').innerHTML = humanTotal;
+          }
+          if(humanTotal > 21)
+          {
+              alert('busted');
+              isPlaying = false;
+          }
+      }
+      document.getElementById('standBtn').addEventListener('click', function () {
+          stand();
+      });
+      function stand()
+      {
+          if(isPlaying == false) {return;}
+
+          isPlaying = false;
+
+
+          dCardsImgs[1].src = deck[top_card].imgSrc;
+          dealerTotal += deck[top_card].value;
+          top_card++;
+
+          var dealerCounter = 0;
+          while(dealerTotal < 17)
+          {
+              dCardsImgs[(2+dealerCounter)].src = deck[top_card].imgSrc;
+              dealerTotal += deck[top_card].value;
+              top_card++;
+              dealerCounter++;
+              if(dealerTotal > 21) break;
+
+          }
+
+          document.getElementById('dTotal').innerHTML = dealerTotal;
+
+          if(dealerTotal >21 && humanTotal <=21)
+          {
+              alert('win');
+          }
+          else if(dealerTotal <=21 && humanTotal > 21 )
+          {
+              alert('busted v2');
+          }
+          else if(humanTotal > dealerTotal )
+          {
+              alert('win');
+          }
+          else if(humanTotal < dealerTotal)
+          {
+              alert('lost');
+          }
+          else
+          {
+              alert('push');
+          }
+      }
+
+
+function surrender() {
+    if(isPlaying == false) return;
+    isPlaying = false;
+    for(var i=0; i<pCardsImgs.length; i++)
+    {
+        pCardsImgs[i].style.opacity = 0.5;
+    }
+
+}
+
+
+function resetGame() {
+    humanTotal = 0;
+    dealerTotal = 0;
+    hitCounter = 0;
+    for(var i=0; i<pCardsImgs.length; i++)
+    {
+        pCardsImgs[i].src='';
+        pCardsImgs[i].style.opacity=1;
+    }
+    for(var i=0; i<dCardsImgs.length; i++)
+    {
+        dCardsImgs[i].src='';
+    }
+
+    document.getElementById('pTotal').innerHTML='';
+    document.getElementById('dTotal').innerHTML='';
+
+}
+function resetDeck()
+{
+    alert("deck has been reset");
+    shuffleDeck();
+    top_card = 0;
+}
+
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,22 @@
+<?php // SSI
+require_once('PageLib.php'); // class Page { ... }
+
+$homePage = new Page();
+
+//TITLE///////////////////////////////////////////////////
+$homePage->title = "Home";
+
+//LINKS///////////////////////////////////////////////////
+$homePage->links["Home"]="home.php";
+$homePage->links["Services"]="services.php";
+$homePage->links["Contact Form"]="contact.php";
+
+//CONTENT/////////////////////////////////////////////////
+$homePage->content = "<h1>Home page Content</h1>";
+
+//DISPLAY_PAGE////////////////////////////////////////////
+//
+$homePage->displayPage();
+//
+//////////////////////////////////////////////////////////
+?>

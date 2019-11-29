@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<head>
+  <title>project2.html</title>
+  <link type="text/css" rel="stylesheet" href="css/project2.css">
+</head>
+<body>
+  <div id = "timer">
+    <h3>TIME THIS ROUND: <span id = "minutes">00</span> : <span id = "seconds">00</span></h3>
+  </div>
+  <div id="playArea" class="floatLeft">
+    <h2 id="player">PLAYER</h2>
+    <hr>
+    <img class="card" src"" />
+    <img class="card" src"" />
+    <img class="card" src"" />
+    <img class="card" src"" />
+    <img class="card" src"" />
+    <h2>SCORE:<span id = 'score'></span></h2>
+  </div>
+  <div id="btnArea" class="floatLeft">
+    <div id = "inputs" >
+      <div id ="highBtn" class="btn">HIGH</div>
+      <div id ="lowBtn" class="btn">LOW</div>
+      <div id ="resetGame" class="btn">RESET</div>
+    </div>
+    <h3 id = 'result'></h3>
+  </div>
+  <div id="timeScores" class="clear">
+    <h2>TIME SCORES</h2>
+
+  </div>
+
+
+
+<script src = "javascript/timer.js"></script>
+<script src="javascript/project2.js"></script>
+<script >
+var pCards=[];
+var pCurrentCard=0;
+var pScore = 0;
+var htmlScore = document.getElementById('score');
+var cardImages = document.getElementsByClassName('card');
+var result = document.getElementById('result');
+var faceDownCard = "../images/b1fv.png";
+setUp();
+
+//draw 5 cards and assign them to pCards
+//set up cards to display
+function setUp()
+{
+  pCurrentCard=0;
+  drawCards();
+  for(var i=0; i<5;i++)
+  {
+    if(i == 0)
+        cardImages[i].src=pCards[i].imgSrc;
+    else
+      cardImages[i].src=faceDownCard;
+  }
+  htmlScore.innerHTML=pScore;
+  hideResetButton();
+
+}
+
+//draw 5 cards
+function drawCards()
+{
+  for(var i=0; i<5 ; i++)
+  {
+    pCards[i]=draw();
+    console.log('Card '+(i+1)+": "+pCards[i].value);
+  }
+}
+
+
+
+
+
+//guess high
+document.getElementById('highBtn').addEventListener('click',function(){high();});
+function high()
+{
+
+  if(isEqual())
+  {
+      result.innerHTML="<h2>SORRY YOU LOSE</h2>";
+      pCurrentCard++;
+      cardImages[pCurrentCard].src = pCards[pCurrentCard].imgSrc;
+      showResetButton();
+
+  }
+  else if (pCards[pCurrentCard].value<pCards[pCurrentCard+1].value && pCurrentCard == 3)
+  {
+    pCurrentCard++;
+    pScore++;
+    cardImages[pCurrentCard].src = pCards[pCurrentCard].imgSrc;
+    setUp();
+
+    if(pScore==3)
+    {
+      showResetButton();
+      result.innerHTML="<h2>YOU WIN!!!</h2>";
+      addTimeScore();
+
+    }
+
+  }
+  else if (pCards[pCurrentCard].value<pCards[pCurrentCard+1].value)
+  {
+    pCurrentCard++;
+    cardImages[pCurrentCard].src = pCards[pCurrentCard].imgSrc;
+  }
+  else if (pCards[pCurrentCard].value>pCards[pCurrentCard+1].value)
+  {
+    pCurrentCard++;
+    cardImages[pCurrentCard].src = pCards[pCurrentCard].imgSrc;
+    result.innerHTML="<h2>YOU LOSE!!</h2>";
+    showResetButton();
+  }
+}
+
+
+
+
+
+//guess low
+document.getElementById('lowBtn').addEventListener('click',function(){low();});
+function low()
+{
+
+  if(isEqual())
+  {
+      result.innerHTML="<h2>SORRY YOU LOSE</h2>";
+      cardImages[pCurrentCard].src = pCards[pCurrentCard].imgSrc;
+      showResetButton();
+
+  }
+  else if (pCards[pCurrentCard].value>pCards[pCurrentCard+1].value && pCurrentCard == 3)
+  {
+      pCurrentCard++;
+      pScore++;
+      cardImages[pCurrentCard].src = pCards[pCurrentCard].imgSrc;
+      setUp();
+
+      if(pScore==3)
+      {
+        showResetButton();
+        result.innerHTML="<h2>YOU WIN!!!</h2>";
+        addTimeScore();
+      }
+  }
+  else if (pCards[pCurrentCard].value>pCards[pCurrentCard+1].value)
+  {
+    pCurrentCard++;
+    cardImages[pCurrentCard].src = pCards[pCurrentCard].imgSrc;
+  }
+  else if (pCards[pCurrentCard].value<pCards[pCurrentCard+1].value)
+  {
+    pCurrentCard++;
+    cardImages[pCurrentCard].src = pCards[pCurrentCard].imgSrc;
+    result.innerHTML="<h2>YOU LOSE!!</h2>";
+    showResetButton();
+  }
+}
+
+
+
+
+
+//check if same card
+function isEqual()
+{
+  if(pCards[pCurrentCard].value==pCards[pCurrentCard+1].value)
+    return true;
+  else
+    return false;
+}
+
+
+//reset button when visible
+document.getElementById('resetGame').addEventListener('click',function(){resetGame();});
+function resetGame()
+{
+    pScore=0;
+    shuffleDeck();
+    setUp();
+    result.innerHTML='';
+    resetTime();
+}
+
+//two fucntion to change if reset is hidden or not
+function showResetButton()
+{
+  document.getElementById('highBtn').style.display='none';
+  document.getElementById('lowBtn').style.display='none';
+  document.getElementById('resetGame').style.display='inline';
+  pauseTime();
+}
+function hideResetButton()
+{
+  document.getElementById('highBtn').style.display='inline';
+  document.getElementById('lowBtn').style.display='inline';
+  document.getElementById('resetGame').style.display='none';
+}
+
+</script>
+<script>
+function addTimeScore()
+{
+  var node = document.createElement("LI");                 // Create a <li> node
+  var textnode = document.createTextNode(getTime());         // Create a text node
+  node.appendChild(textnode);                              // Append the text to <li>
+  document.getElementById("timeScores").appendChild(node);     // Append <li> to <ul> with id="myList"
+}
+</script>
+
+</body>

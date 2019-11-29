@@ -1,0 +1,1 @@
+mysql -p -Dnlarson < nlarsonDB.sql

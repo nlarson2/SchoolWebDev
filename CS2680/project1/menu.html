@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Menu</title>
+  <link type = "text/css" rel="stylesheet" href="css/layout.css" />
+  <link type = "text/css" rel="stylesheet" href="css/menu.css" />
+  <link type = "text/css" rel="stylesheet" href="css/text.css" />
+</head>
+<body>
+  <header>
+    <p class = "centerText"><img class = "wienerLogo" src="images/gourmetWienerbanner.png" /></p>
+    <p class = "centerText"><img class = "contentBanner" src = "images/menu.png" /></p>
+  </header>
+  <main>
+    <div class = "leftBar floatLeft">
+      <nav>
+        <ul>
+          <li><a href = "project1.html">HOME</a></li>
+          <li><a href = "menu.html">MENU</a></li>
+          <li><a href = "contact.html">CONTACT</a></li>
+        </ul>
+        <h3 class="centerText">Hours</h3>
+        <p class="centerText">
+          Mon-Fri: 10:00am - 7:00pm<br />
+          Sat: 10:00am - 8:00pm<br/>
+          Sun: 11:00am - 6:00pm
+        </p>
+      </nav>
+    </div>
+    <div class = "content floatLeft">
+      <p class="centerText">
+        <img class="contentBanner" src = "images/DOGS.png" />
+      </p>
+      <div class = "slideShow">
+        <div class="floatLeft" id = "leftArrow"><img src ="images/redHotDog.png" onclick="plusSlides(-1)" /></div>
+        <div class = "floatLeft slideShowContainer">
+
+          <div class = "slide">
+            <a class = "thumbnailLink" onclick = "this.preventDefault; loadpage(1);">
+            <img class = "thumbnail" src = "images/hotDogs/bltDog.jpg"   /></a>
+            <h2>BLT Hot Dog</h2>
+          </div>
+
+          <div class = "slide">
+            <a class = "thumbnailLink" onclick = "this.preventDefault; loadpage(2);">
+              <img class = "thumbnail" src = "images/hotDogs/corndogMuffin.jpg"   /></a>
+            <h2>Corn Dog Muffins</h2>
+          </div>
+
+          <div class = "slide">
+            <a class = "thumbnailLink" onclick = "this.preventDefault; loadpage(3);"><img class = "thumbnail" src = "images/hotDogs/grilledCheeseDogs.jpg"   /></a>
+            <h2>Grilled Cheese Dog</h2>
+          </div>
+
+          <div class = "slide">
+            <a class = "thumbnailLink" onclick = "this.preventDefault; loadpage(4);"><img class = "thumbnail" src = "images/hotDogs/jalapenoPopperDog.jpg"   /></a>
+            <h2>Jalapeno Popper Dog</h2>
+          </div>
+
+          <div class = "slide">
+            <a class = "thumbnailLink" onclick = "this.preventDefault; loadpage(5);"><img class = "thumbnail" src = "images/hotDogs/macAndCheeseDog.jpg"   /></a>
+            <h2>Mac & Cheese Dog</h2>
+          </div>
+
+          <div class = "slide">
+            <a class = "thumbnailLink" onclick = "this.preventDefault; loadpage(6);"><img class = "thumbnail" src = "images/hotDogs/picklebackDog.jpg"   /></a>
+            <h2>Pickleback Dog</h2>
+          </div>
+
+          <div class = "slide">
+            <a class = "thumbnailLink" onclick = "this.preventDefault; loadpage(7);"><img class = "thumbnail" src = "images/hotDogs/pizzaDog.jpg"   /></a>
+            <h2>Pizza Dog</h2>
+          </div>
+
+          <div class = "slide">
+            <a class = "thumbnailLink" onclick = "this.preventDefault; loadpage(8);"><img class = "thumbnail" src = "images/hotDogs/QuesaDogas.jpg"   /></a>
+            <h2>QuesaDogas</h2>
+          </div>
+
+          <div class = "slide">
+            <a class = "thumbnailLink" onclick = "this.preventDefault; loadpage(9);"><img class = "thumbnail" src = "images/hotDogs/tacoDog.jpg"   /></a>
+            <h2>Taco Dog</h2>
+          </div>
+
+          <div class = "slide">
+            <a class = "thumbnailLink" onclick = "this.preventDefault; loadpage(10);"><img class = "thumbnail" src = "images/hotDogs/waffleCornDog.jpg"   /></a>
+            <h2>Waffle Corn Dog</h2>
+          </div>
+
+        </div>
+        <div class="floatLeft" id = "rightArrow"><img src = "images/greenHotDog.png" onclick="plusSlides(1)" /></div>
+      </div>
+
+      <p class="centerText clear">
+        <img class="contentBanner" src = "images/BEER.png" />
+      </p>
+      <p class = "centerText">
+        <img class = "beerPic" src = "images/beers/budweiser.png" />
+        <img class = "beerPic" src = "images/beers/guinness.jpg" />
+        <img class = "beerPic" src = "images/beers/miller.png" />
+        <img class = "beerPic" src = "images/beers/communityBeer.png" />
+        <img class = "beerPic" src = "images/beers/squatters.png" />
+      </p>
+    </div>
+    <div class = "rightBar floatLeft">
+      <h2 class="centerText">BUY ONE GET ONE FREE ON TUESDAYS</h2>
+      <h2 class="centerText">BEST HOT DOGS IN THE BAKERSFIELD AREA</h2>
+    </div>
+  </main>
+  <footer class="clear centerText">
+    <p>
+      &copy;2018 Larson Web Development. All Rights Reserved.
+    </p>
+  </footer>
+    <script type = "text/javascript" src = "javascript/slideshow.js"></script>
+    <script type = "text/javascript" src = "javascript/loadpage.js"></script>
+</body>
+</html>

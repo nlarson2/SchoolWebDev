@@ -1,0 +1,122 @@
+/****COLORS***********/
+/****c84141****red****/
+/****398b5e***green***/
+/****fac135***gold****/
+
+
+/***********BORDER FOR DEVELOPMENT PURPOSES**********
+.leftBar{border: solid red .1px;}
+.rightBar{border: solid red .1px;}
+.content{border: solid green .1px;}
+header{border: solid red .1px;}
+nav{border: solid blue .1px;}
+main{border: solid blue .1px;}
+footer{border: solid blue .1px;}
+****************************************************/
+
+.floatLeft{float:left;}
+.floatRight{float:right;}
+.clear{clear:both}
+.half-col{width: 50%;}
+
+.centerText{
+  text-align: center;
+}
+
+body{
+  margin: 0px;
+  min-width: 1000px;
+}
+
+/*************HEADER************/
+header{
+  background-color: #fac135;
+  margin-bottom: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.wienerLogo{
+  margin-bottom: -15px;
+  margin-right: 20px;
+  width: 800px;
+}
+
+/***********HEADER-END**********/
+
+main{
+  width: 98%;
+  margin: auto;
+  margin-bottom: 15px;
+}
+
+/**************BODY*************/
+.leftBar{
+  width: 15%;
+  background-color: #c84141;
+  margin-bottom: 20px;
+  position: sticky; /* how to make them stick?????*/
+}
+nav{
+  margin: 0px;
+  width: 100%;
+}
+nav ul{
+  width: auto;
+  padding: 0px 10px;
+  /*margin-left: 0px;*/
+}
+nav li{
+  width: auto;
+  background-color: #c84141;
+  /*font-size: 100%;*/
+  padding: 5px;
+  margin-bottom: 10px;
+  border: solid #398b5e 2px;
+}
+.icon{width:40px;}
+.lineBreak{
+    border: 0;
+    width: 80%;
+    box-shadow: 2px 2px 8px 1px black;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    clear: both;
+}
+.contentImg{
+  width: 400px;
+}
+.contentBanner{
+  width: 200px;
+}
+.content{
+  width: 70%;
+}
+.content img{
+  margin: 10px;
+  margin-right: 15px;
+}
+.content p{
+  padding: 0px 40px 10px 40px;
+}
+.award{
+  width: 200px;
+}
+
+.rightBar{
+  width: 15%;
+  background-color: #c84141;
+  position: sticky;
+  margin-bottom: 20px;
+}
+.rightBar h2{
+  padding:10px;
+}
+/************BODY-END***********/
+/************FOOTER*************/
+footer{
+  background-color: #fac135;
+  position: static;
+  bottom: 0px;
+  width: 100%
+}
+/**********FOOTER-END***********/

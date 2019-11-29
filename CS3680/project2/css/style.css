@@ -1,0 +1,35 @@
+/*========================|
+| Author: Nickolas Larson |
+| Created: 4/23/2019      |
+| Modified: 4/24/2019     |
+|========================*/  
+#content{
+    padding-left: 200px;
+}
+.err {
+    color: red;
+    font-size: 80%;
+}
+.inputErr{
+    width: 100%;
+    border: 2px solid red;
+    border-radius: 4px;
+}
+
+form{
+    width: 50%;
+    margin: auto;
+}
+
+img{
+    width: 100px;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+#total {
+    text-align: right;
+    position: relative;
+    right: 80px;
+}

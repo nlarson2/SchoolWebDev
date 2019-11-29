@@ -1,0 +1,15 @@
+.clear {clear:both;}
+.floatLeft{float: left;}
+.flipImg{ transform:scaleX(-1);}
+.centerText{text-align: center;}
+
+.LEFT, .RIGHT{
+  width:40%;
+  height:auto;
+}
+.RIGHT{
+  margin-left: 30px;
+}
+#scores{
+  margin:auto;
+}

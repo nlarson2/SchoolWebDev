@@ -1,0 +1,37 @@
+.slideShow{
+  width: 100%;
+  margin:auto;
+  text-align: center;
+  margin-bottom: 20px;
+
+}
+#leftArrow{
+  width: 30%;
+}
+#leftArrow img{
+  width: 150px;
+  margin-left: 50px;
+}
+.slideShowContainer{
+  width: 40%;
+}
+
+.thumbnailLink{
+  text-align: center;
+}
+.thumbnail{
+  width: 200px;
+}
+
+#rightArrow{
+  width: 30%;
+}
+#rightArrow img{
+  width: 150px;
+  margin-right: 50px;
+}
+
+.beerPic {
+  height:120px;
+  width: auto;
+}

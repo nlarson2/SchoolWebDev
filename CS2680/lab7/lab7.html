@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LAB 7</title>
+  <link type="text/css" rel="stylesheet" href="lab7.css" />
+  <script type="text/javascript" src="lab7.js"></script>
+</head>
+<body>
+  <header>
+    <h1 class="centerText">ROCK PAPER SCISSORS</h1>
+  </header>
+  <main>
+    <div id="leftPlayer" class="LEFT floatLeft flipImg">
+        <p>
+          <img id="choiceLeft" src="" />
+        </p>
+    </div>
+    <div id="rightPlayer" class="RIGHT floatLeft">
+      <p>
+         <img id="choiceRight" src="" />
+      </p>
+    </div>
+    <div id="choice" class="floatLeft">
+      <input type="button" id="rockBtn" value="Rock"/><br />
+      <input type="button" id="paperBtn" value="Paper"/><br />
+      <input type="button" id="scissorsBtn" value="Scissors"/><br />
+      <input type="button"  id='clearBtn' value="Clear"/>
+    </div>
+    <div id="scores" class="LEFT clear">
+      <div id="leftPlayerScore" class="floatLeft">
+        <h2 class="centerText">COMPUTER</h2>
+        <p id="computerScore" class="centerText">0</p>
+      </div>
+      <div id="rightPlayerScore" class="RIGHT floatLeft">
+        <h2 class="centerText">PLAYER</h2>
+        <p id="playerScore" class="centerText">0</p>
+      </div>
+    </div>
+  </main>
+<script>
+
+document.getElementById('rockBtn').addEventListener('click', function(){play(0);});
+document.getElementById('paperBtn').addEventListener('click', function(){play(1);});
+document.getElementById('scissorsBtn').addEventListener('click', function(){play(2);});
+document.getElementById('clearBtn').addEventListener('click', function(){clearPics();});
+
+var playerScore = 0;
+var computerScore = 0;
+var pick=['images/rock.png','images/paper.png','images/scissors.png'];
+
+function play(pCh)
+{
+  var cCh = compPlay();
+  show('choiceLeft');
+  show('choiceRight');
+  changeImg('choiceLeft',pick[cCh]);
+  changeImg('choiceRight',pick[pCh]);
+  //logic
+  if((pCh==0 && cCh==1)||(pCh==1 && cCh==2)||(pCh==2 && cCh==0))
+  {
+    computerScore++;
+    changeText('computerScore',computerScore);
+  }
+  else if((pCh==1 && cCh==0)||(pCh==2 && cCh==1)||(pCh==0 && cCh==2))
+  {
+    playerScore++;
+    changeText('playerScore',playerScore);
+  }
+
+}
+function compPlay()
+{
+  //0=scissors 1=paper 2=rock
+  var compChoice=Math.floor(Math.random()*3);
+  return compChoice;
+}
+function clearPics()
+{
+  hide('choiceLeft');
+  hide('choiceRight');
+}
+
+</script>
+
+</body>
+</html>

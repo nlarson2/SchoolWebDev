@@ -1,0 +1,95 @@
+body{
+    background-color:#eee;
+    
+}
+
+.box{
+    border: 1px solid red;
+}
+
+.center{
+    text-align: center;   
+}
+
+header,nav{
+    text-align: center;
+}
+
+.headnav{
+    background-color: #40e0d0;
+}
+
+header h1{
+   /* text-align: center;*/
+    color: white;
+}
+
+/*
+nav{
+    background-color: #40e0d0;
+    text-align: center;
+}
+*/
+
+nav ul li,a{
+   display: inline;
+   margin-right: 20px;
+   text-decoration:none;
+   font-weight: bold;
+   font-size: 30px;
+   
+}
+
+nav a:link{
+    color: white;
+}
+
+nav a:visited{
+    color: white;
+}
+
+nav a:hover{
+    color: red;
+}
+
+nav a:active{
+    color: grey;
+}
+
+.content{
+    font-family: Arial, Verdana, Sans-serif;
+    height:800px;
+    margin: auto;
+    width: 60%;
+}
+
+footer{
+    background-color: #ccc;
+    font-size: 10px;
+    text-align: center;
+}
+
+#thumbnail{
+    height: 150px;
+    width: 200px;
+   /* margin-left: 39%;*/
+    
+}
+
+#serviceList{
+    text-align: center;
+}
+
+#tractorHeader{
+    text-align: center;
+}
+
+.halfCol{
+    /*display: inline-block;*/
+    float:left;
+    width: 48%;
+    height: 100%;
+  
+}
+.clear{clear:both;}
+/**{box-sizing: border-box;}*/

@@ -1,0 +1,71 @@
+body{
+    width: 80%;
+    margin: auto;
+}
+
+div p{
+    text-align: justify;
+}
+
+#tab{
+    margin-left: 20px;
+}
+
+#pageHeader{
+    color: red;
+    text-align: center;
+    
+}
+
+#divOne{
+    border: double blue 2px;
+    padding: 10px;
+    margin: 20px auto;   
+    width: 80%;
+    background-color: #EEE;
+    outline: dotted red 2px; 
+}
+
+#divTwo{
+    outline: solid black 3px;
+    border: solid #52ff02 5px;
+    padding: 5px;
+    margin: 10px 15px 20px 25px;
+    width: 50%;
+    color: #52ff02;
+    background-color: black
+}
+
+#divThree{
+    border: dashed white 4px;
+    outline: solid black 3px;
+    padding: 20px 15px 10px 5px;
+    margin-left: 20%;
+    height: 10%;
+    width: 60%;
+    color: white;
+    background-image: url(img/pic.png);
+
+}
+
+#divFour{
+    border: dashed #9b1900 4px;
+    border-radius: 12px;
+    outline: dashed grey 4px;
+    padding: 3px;
+    margin: 20px auto;
+    width: 90%;
+    color: white;
+    background-color: grey;
+}
+
+#divFive{
+    border: solid white 5px;
+    outline: solid red 5px;
+    background-color: blue;
+    padding: 3px 5px;
+    width: 70%;
+    margin: auto;
+    color: white;
+}
+
